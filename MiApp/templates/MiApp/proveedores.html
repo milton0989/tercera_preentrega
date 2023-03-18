@@ -4,13 +4,26 @@
 {% block main %}
 <main class="container">
   <div class="bg-light p-5 rounded">
-    <h1>ESTOY EN PROVEEDORES</h1>
-    <p class="lead">Esto es un parrafo de contenido, espero su continuación.</p>
+    
+
+    {% if form %}
+    <h1>ESTA EN PROVEEDORES</h1>
+    <p class="lead">Complete los datos para añadir un proveedor a la base de datos.</p>
+
     <form action="{% url 'agregar_proveedor' %}" method="proveedor">
       {% csrf_token %}
       {{form.as_p}}
       <input type="submit" value="Agregar">
-  </form>
+    </form>
+    {% else %}
+    <h1>RESULTADO DE BUSQUEDA</h1>
+    <p class="lead">Se han encontrado los siguientes proveedores:.</p>
+    <ul>
+      {%  for prov in proveedor  %}
+      <li> {{prov.id}} - {{ prov.nombre }} - Contacto: {{ prov.contacto}}</li>
+      {% endfor %}
+    {% endif %}
+    </ul>
   </div>
 </main>
 {% endblock %}

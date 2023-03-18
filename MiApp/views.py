@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from MiApp.forms import CompraForm, ProveedorForm, RecursoForm
+from MiApp.models import Proveedor
+
 
 # Create your views here.
 
@@ -39,3 +41,9 @@ def agregar_recurso (request):
     context = {"form":RecursoForm(),}
     return render(request, "MiApp/recursos.html", context)
     
+def buscar_proveedor (request):
+    criterio = request.GET.get("criterio")
+    context = {
+        "proveedor": Proveedor.objects.filter(nombre__icontains=criterio).all(),
+    }
+    return render (request, "MiApp/proveedores.html", context)
