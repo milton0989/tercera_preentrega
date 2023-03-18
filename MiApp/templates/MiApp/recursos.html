@@ -4,8 +4,8 @@
 {% block main %}
 <main class="container">
   <div class="bg-light p-5 rounded">
-    <h1>ESTOY EN RECURSOS</h1>
-    <p class="lead">Esto es un parrafo de contenido, espero su continuación.</p>
+    <h1>ESTA EN RECURSOS</h1>
+    <p class="lead">Complete los datos para añadir un recurso a la base de datos.</p>
     <form action="{% url 'agregar_recurso' %}" method="recurso">
       {% csrf_token %}
       {{form.as_p}}
