@@ -2,14 +2,31 @@ from django.db import models
 
 # Create your models here.
 
-class Post(models.Model):
-    titulo = models.CharField(max_length=30)
-    descripcion_titulo = models.CharField(max_length=80)
-    subtitulo = models.CharField(max_length=10)
-    descripcion = models.CharField(max_length= 150)
-
+class Compra(models.Model):
+    fecha_compra = models.CharField(max_length=50)
+    proveedor = models.CharField(max_length=50)
+    importe_compra = models.CharField(max_length=50)
+    
     def __str__(self) :
-        return f"{self.id} - {self.titulo}"
+        return f"{self.id} - {self.proveedor}"
+
+class Proveedor(models.Model):
+    nombre = models.CharField(max_length=50)
+    domicilio = models.CharField(max_length=50)
+    contacto = models.CharField(max_length=50)
+    
+    def __str__(self) :
+        return f"{self.id} - {self.nombre}"
+    
+class Recurso(models.Model):
+    nombre_recurso = models.CharField(max_length=50)
+    unidad = models.CharField(max_length=50)
+    agrupamiento = models.CharField(max_length=50)
+    
+    def __str__(self) :
+        return f"{self.id} - {self.nombre_recurso}"
+
+
 
 
 
