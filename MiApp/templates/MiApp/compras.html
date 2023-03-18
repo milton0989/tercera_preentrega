@@ -6,7 +6,11 @@
   <div class="bg-light p-5 rounded">
     <h1>ESTOY EN COMPRAS</h1>
     <p class="lead">Esto es un parrafo de contenido, espero su continuación.</p>
-    
+    <form action="{% url 'agregar_compras' %}" method="compra">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
+    </form>
   </div>
 </main>
 {% endblock %}
