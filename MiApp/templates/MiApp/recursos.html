@@ -6,7 +6,7 @@
   <div class="bg-light p-5 rounded">
     <h1>ESTA EN RECURSOS</h1>
     <p class="lead">Complete los datos para añadir un recurso a la base de datos.</p>
-    <form action="{% url 'agregar_recurso' %}" method="recurso">
+    <form action="{% url 'agregar_recurso' %}" method="post">
       {% csrf_token %}
       {{form.as_p}}
       <input type="submit" value="Agregar">

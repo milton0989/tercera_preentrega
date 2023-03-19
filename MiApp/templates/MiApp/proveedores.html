@@ -10,7 +10,7 @@
     <h1>ESTA EN PROVEEDORES</h1>
     <p class="lead">Complete los datos para añadir un proveedor a la base de datos.</p>
 
-    <form action="{% url 'agregar_proveedor' %}" method="proveedor">
+    <form action="{% url 'agregar_proveedor' %}" method="post">
       {% csrf_token %}
       {{form.as_p}}
       <input type="submit" value="Agregar">

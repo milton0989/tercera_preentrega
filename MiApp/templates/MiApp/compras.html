@@ -6,7 +6,7 @@
   <div class="bg-light p-5 rounded">
     <h1>ESTA EN COMPRAS</h1>
     <p class="lead">Complete los datos para añadir una compra a la base de datos.</p>
-    <form action="{% url 'agregar_compras' %}" method="compra">
+    <form action="{% url 'agregar_compras' %}" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Agregar">
